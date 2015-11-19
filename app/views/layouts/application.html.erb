@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Latest compiled and minified CSS & JS -->
-<link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-
-  <title>Concrt</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+	<title>Concrt</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render 'partials/flash' %>
+
 <nav class="navbar navbar-default" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
@@ -27,15 +28,44 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Users</a></li>
-			<li><a href="#">Sign-In</a></li>
-			<li><a href="#">Sign-Up</a></li>
-			<li><a href="#">Logout</a></li>
+			<li><%= link_to 'Users', users_path%></li>
+			<li><%= link_to 'See a Show', events_path%></li>
+			<li><%= link_to 'Login', '#login', 'data-toggle' => 'modal', 'data-target' => '#login'%></li>
+			<li><%= link_to 'Sign-Up', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup'%></li>
+			<li><%= link_to 'Logout', logout_path%></li>
 		</ul>
 	</div><!-- /.navbar-collapse -->
 </nav>
 
 <%= yield %>
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	<h1>Login</h1>
+				<%= bootstrap_form_for(:user, url: login_path) do |f| %>
+				<%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+				<%= f.password_field :password, placeholder: 'Password', class: 'form-control'%>
+				<%= f.primary 'Log In '%>
+			<% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	<h1>Sign-Up</h1>
+				<%= bootstrap_form_for :user, url: signup_path do |f| %>
+				<%= f.text_field :name, placeholder: 'Name' %>
+				<%= f.text_field :email, placeholder: 'Email' %>
+				<%= f.password_field :password, placeholder: 'Password' %>
+				<%= f.password_field :password_confirmation, placeholder: 'Re-Type Password' %>
+				<%= f.primary 'Sign Up'%>
+			<% end %>
+    </div>
+  </div>
+</div>
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script>
