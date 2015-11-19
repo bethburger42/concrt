@@ -3,6 +3,9 @@
 <head>
 <!-- Latest compiled and minified CSS & JS -->
 <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
   <title>Concrt</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -24,17 +27,21 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
+			<li><a href="#">Users</a></li>
+			<li><a href="#">Sign-In</a></li>
+			<li><a href="#">Sign-Up</a></li>
 			<li><a href="#">Logout</a></li>
 		</ul>
 	</div><!-- /.navbar-collapse -->
 </nav>
-<div class='container'>
-	<%= yield %>
-</div>
+
+<%= yield %>
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script>
+    jQuery(function($) {
+      $('body').panelSnap();
+    });
+ </script>
 </body>
 </html>
