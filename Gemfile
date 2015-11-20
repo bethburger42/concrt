@@ -30,6 +30,12 @@ gem 'email_validator'
 
 gem 'bootstrap_form'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'bootstrap-datepicker-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

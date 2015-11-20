@@ -1,2 +1,23 @@
-<h1>Landing Page</h1>
-<p>Were we pull them in</p>
+<div id='panel-container'>
+	<section data-panel="first" class="first">
+		<div class='f-div'>
+			<div class='f-content'>
+				<h1>Welcome to Concrt</h1>
+				<h2>A Place to find and discover local music</h2>
+				<h3>scroll down to learn more.</h3>
+				<i class="fa fa-arrow-down fa-2x"></i>
+			</div>
+		</div>
+	</section>
+
+	<section data-panel="second" class="second">
+	</section>
+
+	<section data-panel="third" class="third">
+	</section>
+
+	<section data-panel="fourth" class="fourth">
+	<a><%= link_to 'Login', '#login', 'data-toggle' => 'modal', 'data-target' => '#login', class: 'btn btn-primary btn-lg'%></a>
+	<a><%= link_to 'Sign-In', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup', class: 'btn btn-primary btn-lg'%></a>
+	</section>
+</div>
