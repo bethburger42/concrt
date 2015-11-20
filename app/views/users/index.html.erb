@@ -1,7 +1,10 @@
 <div class='container'>
 	<div class='row'>
 		<% @users.each do |user| %>
-			<%= user.name %>
+			<div class='col-md-2 user'>
+				<img src='http://mineshots.com/design/frontend/images/ms/no-user.jpg'>
+				<h3><%= link_to user.name, user %></h3>
+			</div>
 		<% end %>
 	</div>
 </div>

@@ -1,0 +1,9 @@
+.user {
+	background-color: #ff9900;
+	margin-right: 10px;
+}
+.user img {
+	height: 75%;
+	width: 100%;
+	padding-top: 10px;
+}

@@ -40,10 +40,20 @@ border: none;
   font-weight: bold;
   font-size: 25px;
  }
- #nav-links {
+
+ .nav-links {
   font-size: 15px;
   color: #ff9900;
  }
+
+ .nav-links a:active {
+  outline: none;
+  border: none;
+ }
+
+ .nav-links a:focus {
+  outline: none;
+  }
 
 #panel-container {
   height:100%;
