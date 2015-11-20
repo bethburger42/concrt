@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'rest-client'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
