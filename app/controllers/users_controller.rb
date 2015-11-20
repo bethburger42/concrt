@@ -5,8 +5,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create user_params
-    puts user.errors
-    redirect_to users_path
+    redirect_to users
   end
 
   def new
@@ -17,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find params[:id]
   end
 
   def update

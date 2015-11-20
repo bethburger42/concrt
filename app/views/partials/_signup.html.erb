@@ -1,0 +1,15 @@
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	<h1>Sign-Up</h1>
+				<%= bootstrap_form_for :user, url: signup_path do |f| %>
+				<%= f.text_field :name, placeholder: 'Name' %>
+				<%= f.text_field :email, placeholder: 'Email' %>
+				<%= f.password_field :password, placeholder: 'Password' %>
+				<%= f.password_field :password_confirmation, placeholder: 'Re-Type Password' %>
+				<%= f.primary 'Sign Up'%>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<% end %>
+    </div>
+  </div>
+</div>

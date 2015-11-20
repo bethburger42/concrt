@@ -45,6 +45,8 @@ Rails.application.routes.draw do
 
   get 'users' => 'users#index'
 
+
+  resources :users
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
