@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+  get 'results' => 'events#index'
+
   get 'about' => 'main#about'
 
   get 'login' => 'sessions#new'

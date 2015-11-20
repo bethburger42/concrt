@@ -38,6 +38,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'rest-client'
 
+gem 'gon'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

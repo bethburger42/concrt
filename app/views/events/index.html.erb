@@ -1,25 +1,16 @@
+
+
 <h1>All Concerts Go here</h1>
 <p>This is where user searches for concerts</p>
 
-<%= bootstrap_form_tag event_path do |f| %>
-<p>Select date range:</p>
-<div class="input-daterange" data-behaviour='datepicker' id="datepicker">
-   <span class="add-on">From</span>
-   <%= f.text_field :datepicker_start_date, 'data-behaviour' => 'datepicker' %>
-   <!-- <input type="string" class="input-small" name="datepicker_start_date" /> -->
-   <span class="add-on">to</span>
-   <%= f.text_field :datepicker_end_date, 'data-behaviour' => 'datepicker' %>
-   <!-- <input type="string" class="input-small" name="datepicker_end_date" /> -->
-</div>
-<%= submit_tag "Select Date", :method => "get" %>
-<% end %>
 
-<%= bootstrap_form_tag @results.each do |item| %>
+<% bootstrap_form_tag @results.each do |item| %>
+<% console.log(item)%>
 <div class="well">
-  <h1><%= item['displayName'] %>
+  <h1><%= item["displayName"] %>
   </h1>
   <strong><%= item['venue']['displayName'] %></strong>
   <%= item['location']['city'] %>
-  <%submit_tag "Add Event to My Calendar", :method = "post" %>
+  <%submit_tag "Add Event to My Calendar", :method => "post" %>
 </div>
 <% end %>

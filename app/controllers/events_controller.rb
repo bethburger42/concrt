@@ -4,15 +4,17 @@ class EventsController < ApplicationController
 
   attr_accessor :name, :date, :locations, :artist
 
-  def index
-    @events = Event.all
-  end
+  # def index
+  # @events = Event.all
+  # end
 
-  def results
-    
-    response = RestClient.get 'http://api.songkick.com/api/3.0/events.json?apikey={your_api_key}', {:params => {:datepicker_start_date, :datepicker_end_date]}}
+  def index
+    startDate = :datepicker_start_date
+    endDate = :datepicker_end_date
+    response = RestClient.get 'http://api.jambase.com/events?&apikey={ api key here } &startDate=#{startDate}&endDate=#{endDate}'
     @results = JSON.parse(response)['results']
   end
+
 
   def show
   end
@@ -28,7 +30,7 @@ class EventsController < ApplicationController
     @user = User.find(session[:user_id])
     @user.events << @event
     flash[:notice] = 'Event was saved.'
-  end
+
     redirect_to events_path
   end
 
