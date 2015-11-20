@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
   def create
     user = User.create user_params
-    puts user.errors
-    redirect_to users_path
+    @curret_user = user
+    redirect_to users
   end
 
   def new

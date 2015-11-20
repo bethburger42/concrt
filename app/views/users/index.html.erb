@@ -1,2 +1,8 @@
-<h1>This will show all users</h1>
+<div class='container'>
+	<div class='row'>
+		<% @users.each do |user| %>
+			<%= user.name %>
+		<% end %>
+	</div>
+</div>
 
