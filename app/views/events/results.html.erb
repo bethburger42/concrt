@@ -1,10 +1,10 @@
 <h1>Concert Results Page</h1>
 <p>This is where concerts are displayed</p>
 
-<%= @foo %>
+
 <% @results["Events"].each do |e| %>
-  <h1><%= e["Artists"].each do |a| %>
+  <h3><%= e["Artists"].each do |a| %>
       <%= a["Name"] %>
     <% end %>
-  </h1>
+  </h3>
 <% end %>
