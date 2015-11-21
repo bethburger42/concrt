@@ -5,7 +5,15 @@ class UsersController < ApplicationController
 
   def create
     user = User.create user_params
-    redirect_to users
+    
+    if(user)
+      session[:user_id] = user.id
+      flash[:success] = 'You have successfully logged in!'
+      redirect_to user
+    else
+      flash[:danger] = 'Invalid email or password!'
+      redirect_to root_path
+    end
   end
 
   def new

@@ -12,7 +12,7 @@
 <% if (@current_user) %>
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav navbar-right">
-			<li class='nav-links'><%= link_to 'Me', users_path %></li>
+			<li class='nav-links'><%= link_to 'Me', {:controller => "users", :action => "show", :id => @current_user.id } %></li>
 			<li class='nav-links'><%= link_to 'Users', users_path %></li>
 			<li class='nav-links'><%= link_to 'See a Show', events_path %></li>
 			<li class='nav-links'><%= link_to 'Logout', logout_path %></li>
@@ -21,10 +21,10 @@
  <% else %>
  		<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav navbar-right">
-			<li class='nav-links'><%= link_to 'Users', users_path%></li>
-			<li class='nav-links'><%= link_to 'See a Show', events_path%></li>
-			<li class='nav-links'><%= link_to 'Login', '#login', 'data-toggle' => 'modal', 'data-target' => '#login'%></li>
-			<li class='nav-links'><%= link_to 'Sign-Up', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup'%></li>
+			<li class='nav-links'><%= link_to 'Users', users_path %></li>
+			<li class='nav-links'><%= link_to 'See a Show', events_path %></li>
+			<li class='nav-links'><%= link_to 'Login', '#login', 'data-toggle' => 'modal', 'data-target' => '#login' %></li>
+			<li class='nav-links'><%= link_to 'Sign-Up', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup' %></li>
 		</ul>
 	</div>
 <% end %>
