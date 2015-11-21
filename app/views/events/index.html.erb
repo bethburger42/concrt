@@ -1,16 +1,6 @@
-
-
-<h1>All Concerts Go here</h1>
+<h1>Concert Search Page</h1>
 <p>This is where user searches for concerts</p>
 
 
-<% bootstrap_form_tag @results.each do |item| %>
-<% console.log(item)%>
-<div class="well">
-  <h1><%= item["displayName"] %>
-  </h1>
-  <strong><%= item['venue']['displayName'] %></strong>
-  <%= item['location']['city'] %>
-  <%submit_tag "Add Event to My Calendar", :method => "post" %>
-</div>
-<% end %>
+
+

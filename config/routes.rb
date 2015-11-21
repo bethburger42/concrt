@@ -29,8 +29,6 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
-  get 'results' => 'events#index'
-
   get 'about' => 'main#about'
 
   get 'login' => 'sessions#new'
@@ -45,6 +43,7 @@ Rails.application.routes.draw do
 
   get 'users' => 'users#index'
 
+  get 'events/results' => 'events#results'
 
   resources :users
   resources :events
