@@ -1,9 +1,11 @@
 <h1>Concert Search Page</h1>
 <p>This is where user searches for concerts</p>
 
-<%= bootstrap_form_tag url: results_path, method: :GET do |f| %>
-  <%= f.text_field :zip, label: 'Enter Zip Code' %>
-  <%= f.primary 'Search!' %>
+<%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
+  <%= f.number_field :zip, label: "Enter Zip Code:" %>
+  <%= f.primary %>
 <% end %>
+
+
 
 

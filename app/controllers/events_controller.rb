@@ -3,7 +3,7 @@ require 'json'
 
 class EventsController < ApplicationController
 
-  attr_accessor :name, :date, :locations, :artist
+  attr_accessor :name, :date, :locations, :artist, :zip
 
   def index
   # @events = Event.all
@@ -12,21 +12,20 @@ class EventsController < ApplicationController
   def results
     @startDate = :datepicker_start_date
     @endDate = :datepicker_end_date
-    @zipCode = :zip
+    @zipCode = params[:zip].to_i
     # @jbkey = ENV['JAMBASE_API_KEY']
-    response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => 'mhkjdxmwuargnr5gvrswvska', :o => 'json', :page => 0, :zipCode => 98101}}
+    response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => 'mhkjdxmwuargnr5gvrswvska', :o => 'json', :page => 0, :zipCode => @zipCode}}
 
     # WORKING CODE
     # @results = JSON.parse(RestClient.get("http://api.jambase.com/events?zipCode=95128&page=0&api_key=mhkjdxmwuargnr5gvrswvska&o=json"))
-
-    # puts "**********************"
-    # puts @results
-    # puts "**********************"
 
 
     # response = RestClient.get 'http://api.jambase.com/events', :params => {:apikey => @jbkey, :o => 'json', :page => 0, :zip => @zipCode, :startDate => @startDate, :endDate => @endDate}
     # @results = JSON.parse(response)['results']
     @results = JSON.parse(response)
+    puts "**********************"
+    puts @results
+    puts "**********************"
   end
 
 
