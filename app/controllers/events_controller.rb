@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   end
 
   def results
+    @events = Event.new
     @startDate = params[:datepicker_start_date]
     @endDate = params[:datepicker_end_date]
     @zipCode = params[:zip].to_i
@@ -18,8 +19,8 @@ class EventsController < ApplicationController
     puts @zipCode
 
     # WORKING CODE
-    response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zip => @zipCode}}
-    @results = JSON.parse(response)
+    # response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zipCode => @zipCode}}
+    # @results = JSON.parse(response)
     # WORKING CODE
 
     # response = RestClient.get 'http://api.jambase.com/events', :params => {:apikey => @jbkey, :o => 'json', :page => 0, :zip => @zipCode, :startDate => @startDate, :endDate => @endDate}
@@ -44,9 +45,9 @@ class EventsController < ApplicationController
     @event = Event.create event_params 
     @user = User.find(session[:user_id])
     @user.events << @event
-    flash[:notice] = 'Event was saved.'
+    flash[:notice] = 'Event was saved to your calendar!'
 
-    redirect_to events_path
+    # redirect_to events_path
   end
 
     # Event.create event_params do |c|

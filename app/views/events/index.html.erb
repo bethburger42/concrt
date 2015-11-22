@@ -1,10 +1,17 @@
 <h1>Concert Search Page</h1>
-<p>This is where user searches for concerts</p>
 
+<div>
 <%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
-  <%= f.number_field :zip, label: "Enter Zip Code:" %>
-  <%= f.primary %>
+  <h3><%= f.number_field :zip, label: "Enter Zip Code:" %></h3>
+  <%= f.primary 'Search for Concerts' %>
 <% end %>
+</div>
+
+<div><br /><br />
+<a href="http://www.JamBase.com" title="JamBase Concert Search">
+<img src= "http://images.jambase.com/logos/jambase140x70.gif" alt="Search JamBase Concerts" border="0" /></a>
+<div><h5>**Concert information provided by <a href="http://www.jambase.com">JamBase</a>**</h5></div>
+</div>
 
 
 
