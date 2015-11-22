@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
   def index
       if params[:search]
-        @users = User.search(params[:search])
+        @users = User.where('name LIKE ?', params[:search])
       else
         @users = User.all
       end
-      puts '***************************'
-      puts @users
-      puts '***************************'
+      # render json: params
   end
 
   def create
@@ -38,6 +36,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    user.events.clear
+    user.delete
+    redirect_to root_path
   end
 
   private

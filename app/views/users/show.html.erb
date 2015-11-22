@@ -24,5 +24,9 @@
 		</div>
 	</div>
 
+	<% if(@current_user && @current_user.id == @user.id) %>
+		<%= link_to '<i class="fa fa-trash-o"></i> Delete Profile'.html_safe, @user, class: 'btn btn-danger', method: :delete %>
+	<% end %>
+
 </div>
 
