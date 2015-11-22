@@ -4,6 +4,12 @@
 		<% unless (@current_user) %>
 			<small>- <%= link_to 'Sign-Up Today!', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup'%></small></h1>
 			<% end %>
+			<%= bootstrap_form_for users_path, :method => 'GET', id: 'search-form' do |f| %>
+				  <p>
+				    <%= f.text_field params[:search], placeholder: 'Search Users' %>
+				    <%= f.submit "Search" %>
+				  </p>
+			<% end %>
 	</div>
 	<div class='row'>
 		<% @users.each do |user| %>

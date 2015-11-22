@@ -30,9 +30,9 @@
 .btn:active {
   outline: none;
   border: none;
-  background-color: #ff9900;
-  color: white;
-  border: 2px solid white;
+}
+.btn:focus {
+  outline: none;
 }
 .navbar {
  	background-color: rgba(0, 0, 0, 0.4);
@@ -63,9 +63,9 @@ a:active {
   border: none;
  }
 
- a:focus {
+a:focus {
   outline: none;
-  }
+}
 
 #panel-container {
   height:100%;
@@ -131,12 +131,9 @@ section {
   margin-left: 5px;
   margin-top: 30px;
 }
-/*#wb:active {
-outline: none;
-border: none;
-}*/
-#wb:focus {
+#wb:active {
   outline: none;
+  border: none;
 }
 .modal-content {
   background-color: rgba(255, 153, 0, 0.8);
