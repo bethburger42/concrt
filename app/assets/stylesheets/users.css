@@ -7,3 +7,12 @@
 	width: 100%;
 	padding-top: 10px;
 }
+#network {
+	color: #ff9900;
+}
+.nav>li>a {
+	color: white;
+}
+.nav>li>a:hover {
+	background-color: #ff9900;
+}

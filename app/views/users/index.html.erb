@@ -1,4 +1,14 @@
 <div class='container'>
+	<div class='page-header'>
+		<h1><span id='network'>Network</span>
+		<% unless (@current_user) %>
+			<small>- <%= link_to 'Sign-Up Today!', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup'%></small></h1>
+			<% end %>
+			<%= bootstrap_form_tag url: '/users', method: 'GET' do |f| %>
+				  <%= f.search_field :search, placeholder: 'Search Users' %>
+				  <%= f.submit "Search" %>
+			<% end %>
+	</div>
 	<div class='row'>
 		<% @users.each do |user| %>
 			<div class='col-md-2 user'>

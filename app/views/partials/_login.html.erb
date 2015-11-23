@@ -1,13 +1,15 @@
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal custom fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog">
     <div class="modal-content">
-    	<h1>Login</h1>
+    	<div class='m-div'>
+	    	<h1>Login</h1>
 				<%= bootstrap_form_for :user, url: login_path do |f| %>
-				<%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
-				<%= f.password_field :password, placeholder: 'Password', class: 'form-control'%>
-				<%= f.primary 'Log In '%>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<% end %>
+					<%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+					<%= f.password_field :password, placeholder: 'Password', class: 'form-control'%>
+					<%= f.primary 'Log In '%>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<% end %>
+			</div>
     </div>
   </div>
 </div>

@@ -1,11 +1,24 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+      if params[:search]
+        @users = User.where('name LIKE ?', params[:search])
+      else
+        @users = User.all
+      end
+      # render json: params
   end
 
   def create
     user = User.create user_params
-    redirect_to users_path
+    
+    if(user)
+      session[:user_id] = user.id
+      flash[:success] = 'You have successfully logged in!'
+      redirect_to user
+    else
+      flash[:danger] = 'Invalid email or password!'
+      redirect_to root_path
+    end
   end
 
   def new
@@ -23,6 +36,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    user.events.clear
+    user.delete
+    redirect_to root_path
   end
 
   private

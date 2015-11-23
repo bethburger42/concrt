@@ -18,23 +18,30 @@
  	background: black;
  	font-family: 'Muli', sans-serif;
  }
-
-.btn:active {
-outline: none;
-border: none;
+.btn {
+  background-color: white;
+  color: #ff9900;
+  border: 2px solid #ff9900;
 }
-
+.btn:hover {
+  background-color: #ff9900;
+  color: white;
+  border: 2px solid white;
+}
+.btn:active {
+  outline: none;
+  border: none;
+}
 .btn:focus {
   outline: none;
 }
-
- .navbar {
+.navbar {
  	background-color: rgba(0, 0, 0, 0.4);
  	border-right: none;
  	border-left: none;
  	border-top: none;
   border-bottom: 2px solid white;
- }
+}
 
  #brand {
   color: #ff9900;
@@ -46,15 +53,20 @@ border: none;
   font-size: 15px;
   color: #ff9900;
  }
-
- .nav-links a:active {
+a {
+  color: white;
+}
+a:hover {
+  color: white;
+}
+a:active {
   outline: none;
   border: none;
  }
 
- .nav-links a:focus {
+a:focus {
   outline: none;
-  }
+}
 
 #panel-container {
   height:100%;
@@ -117,15 +129,17 @@ section {
 	background-color: #ff9900;
 }
 #wb {
-  background-color: white;
-  color: #ff9900;
-  border: 2px solid #ff9900;
-  margin-left: 15px;
+  margin-left: 5px;
   margin-top: 30px;
 }
-#wb:hover {
-  background-color: #ff9900;
+#wb:active {
+  outline: none;
+  border: none;
+}
+.modal-content {
+  background-color: rgba(255, 153, 0, 0.8);
   color: white;
-  border: 2px solid white;
-  -webkit-text-stroke: 1px white;
+}
+.m-div {
+ padding: 20px;
 }
