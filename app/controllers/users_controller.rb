@@ -78,9 +78,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    u = User.find params[:id]
-    u.update user_params
-    redirect_to '/users/' +params[:id]
+    userParams = params.require(:user).permit(:name)
+    u = User.find_by_id(@current_user.id)
+    u.update_attributes(userParams)
+    puts "*********************"
+    if (u.valid?)
+      puts "User is valid"
+    else
+      puts "User is stupid"
+    end
+    puts "*********************"
+
+    redirect_to '/users/' + @current_user.id.to_s
   end
 
   def edit
@@ -94,6 +103,10 @@ class UsersController < ApplicationController
     user.delete
     redirect_to root_path
   end
+
+  # def follow(friend)
+  #  self.friends << friend unless self.friends.include?(friend) || friend == self
+  # end
 
   private
 

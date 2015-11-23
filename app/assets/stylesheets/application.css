@@ -54,7 +54,7 @@
   background-color: #ff9900 !important;
 }
 
-.nav>li>a:active, 
+/*.nav>li>a:active,*/ 
 .nav>li>a:visited {
   background-color: black; 
   color: white;
