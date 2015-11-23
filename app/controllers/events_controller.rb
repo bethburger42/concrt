@@ -19,8 +19,8 @@ class EventsController < ApplicationController
     puts @zipCode
 
     # WORKING CODE
-    # response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zipCode => @zipCode}}
-    # @results = JSON.parse(response)
+    response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zipCode => @zipCode}}
+    @results = JSON.parse(response)
     # WORKING CODE
 
     # response = RestClient.get 'http://api.jambase.com/events', :params => {:apikey => @jbkey, :o => 'json', :page => 0, :zip => @zipCode, :startDate => @startDate, :endDate => @endDate}
@@ -29,8 +29,9 @@ class EventsController < ApplicationController
     # puts "**********************"
     # puts @results
     # puts "**********************"
-  end
 
+
+  end
 
   def show
   end
@@ -42,19 +43,21 @@ class EventsController < ApplicationController
 
   def create
     # if Songkick event id isn't already in database
-    @event = Event.create event_params 
     @user = User.find(session[:user_id])
-    @user.events << @event
+    @event = Event.find_by(name: params[:name])
+
+    # puts "*******1st Event***************"
+    # puts @event
+
+    if @event
+      @user.events << @event
+    else
+      @event = Event.create event_params 
+      @user.events << @event
+    end
     flash[:notice] = 'Event was saved to your calendar!'
-
-    # redirect_to events_path
+    redirect_to events_path
   end
-
-    # Event.create event_params do |c|
-    #   c.event_id = params[:event_id]
-    #   c.user_id = @current_user.id
-    #   c.save
-    # end
 
   def destroy
     Event.find(params[:id]).delete
@@ -64,6 +67,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :location, :artist)
+    params.require(:event).permit(:name, :date, :location, :artist, :price)
   end
 end

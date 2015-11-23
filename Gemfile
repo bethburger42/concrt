@@ -42,6 +42,8 @@ gem 'gon'
 
 gem 'json'
 
+gem 'yelp', require: 'yelp'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
