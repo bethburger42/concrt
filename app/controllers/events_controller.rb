@@ -3,7 +3,7 @@ require 'json'
 
 class EventsController < ApplicationController
 
-  attr_accessor :name, :date, :locations, :artist, :zip, :datepicker_start_date, :datepicker_end_date
+  attr_accessor :event_id, :date, :locations, :artist, :zip, :datepicker_start_date, :datepicker_end_date
 
   def index
   # @events = Event.all
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
   def create
     # if Songkick event id isn't already in database
     @user = User.find(session[:user_id])
-    @event = Event.find_by(name: params[:name])
+    @event = Event.find_by(event_id: params[:event_id])
 
     # puts "*******1st Event***************"
     # puts @event
@@ -67,6 +67,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :location, :artist, :price)
+    params.require(:event).permit(:event_id, :date, :location, :artist, :price)
   end
 end

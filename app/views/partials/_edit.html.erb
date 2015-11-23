@@ -5,6 +5,8 @@
 	    	<h1>Edit Your Profile</h1>
 						<%= bootstrap_form_for @user do |u| %>
 					  <%= u.text_field :name %>
+						<%= u.text_field :email %>
+						<%= u.file_field :picture %>
 					  <%= u.primary %>
 					  <button class="btn btn-default" data-dismiss="modal">Close</button>
 				<% end %>

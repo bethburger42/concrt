@@ -82,7 +82,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    userParams = params.require(:user).permit(:name)
+    userParams = params.require(:user).permit(:name, :email)
     u = User.find_by_id(@current_user.id)
     u.update_attributes(userParams)
     redirect_to '/users/' + @current_user.id.to_s

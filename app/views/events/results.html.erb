@@ -18,7 +18,7 @@
   <h4> <a href="<%= e["TicketUrl"] %>"><%= e["TicketUrl"] %></a></h4>
 
     <%= form_for @events, :method => 'post' do |event| %>
-    <%= event.hidden_field :name, :value => e["Venue"]["Id"] %>
+    <%= event.hidden_field :event_id, :value => e["Venue"]["Id"] %>
     <%= event.hidden_field :date, :value => e["Date"] %>
     <%= event.hidden_field :location, :value => e["Venue"]["Name"] %>
     <%= event.hidden_field :artist, :value => e["Artists"][0]["Name"] %>
