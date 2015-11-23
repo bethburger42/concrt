@@ -3,9 +3,12 @@
 
 <div class='container'>
 	<div class='page-header'>
-		<h1 class='user-name'><%= @user.name %>
+		<h1 class='user-name'><%= @user.name %></h1>
 			<% if (@current_user && @current_user.id != @user.id) %>
-				<small> - <a href ="#">Follow</a></small></h1>
+					<%= bootstrap_form_for @friend, :method => 'post' do |f| %>
+					<%=f.hidden_field 'user_id', :value => @user.id %>
+					<%= f.primary 'Follow', class: 'btn btn-default' %> 
+				<% end %>
 			<% end %>
 	</div>
 

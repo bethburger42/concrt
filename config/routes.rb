@@ -45,6 +45,8 @@ Rails.application.routes.draw do
 
   get 'results' => 'events#results'
 
+  post 'users/:id' => 'users#follow'
+
   resources :users
   resources :events
 
