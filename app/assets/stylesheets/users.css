@@ -10,12 +10,12 @@
 #network {
 	color: #ff9900;
 }
-.nav>li>a {
-	color: white;
+.search-bar {
+	display: inline-block;
 }
-.nav>li>a:hover {
-	background-color: #ff9900;
-}
-#search-input {
-	float: right;
+small #u-link a:active, 
+small #u-link a:visited { 
+  color: white;
+  outline: none !important;
+  box-shadow: none !important;
 }
