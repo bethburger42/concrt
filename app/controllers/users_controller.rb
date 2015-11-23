@@ -5,7 +5,6 @@ class UsersController < ApplicationController
       else
         @users = User.all
       end
-      # render json: params
   end
 
   def create
