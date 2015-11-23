@@ -3,6 +3,8 @@
 <%= link_to '&larr; Back'.html_safe, events_path, class: 'btn btn-primary back' %>
 <div><h5>**Concert information provided by <a href="http://www.jambase.com">JamBase</a>**</h5></div>
 
+<h2>Find Nearby Bars and Restaurants: </h2>
+
 <h2>By Zip Code: <%= @results["Events"][0]["Venue"]["ZipCode"] %></h2>
 <h2><%= @results["Events"][0]["Date"] %></h2>
 <% @results["Events"].each do |e| %>
@@ -16,12 +18,13 @@
   <h4> <a href="<%= e["TicketUrl"] %>"><%= e["TicketUrl"] %></a></h4>
 
     <%= form_for @events, :method => 'post' do |event| %>
-    <%= event.hidden_field :name, :value => e["Venue"]["Id"] %>
+    <%= event.hidden_field :event_id, :value => e["Venue"]["Id"] %>
     <%= event.hidden_field :date, :value => e["Date"] %>
     <%= event.hidden_field :location, :value => e["Venue"]["Name"] %>
     <%= event.hidden_field :artist, :value => e["Artists"][0]["Name"] %>
     <%= event.hidden_field :price, :value => e["TicketUrl"] %>
     <%= event.submit %>
+
   <% end %>
     </div>
 <% end %>

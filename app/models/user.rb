@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates_presence_of :password,
-  confirmation: true
+  confirmation: true,
+  :if => lambda {|user| user.password_digest_changed?}
 
 	def self.authenticate email, password
 		User.find_by_email(email).try(:authenticate, password)

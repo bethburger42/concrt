@@ -19,3 +19,11 @@ small #u-link a:visited {
   outline: none !important;
   box-shadow: none !important;
 }
+
+#delete {
+	margin-top: 10px;
+}
+
+#edit {
+	margin-top: 10px;
+}

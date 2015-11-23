@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151119165562) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "event_id"
     t.date     "date"
     t.string   "location"
     t.string   "artist"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151119165562) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "cloud_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
