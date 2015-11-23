@@ -69,7 +69,6 @@ class UsersController < ApplicationController
         end
       end
 
-      # arr[0][5]["events"].push "Event"
       gon.weeks0 = arr[0].to_json
       gon.weeks1 = arr[1].to_json
       gon.weeks2 = arr[2].to_json

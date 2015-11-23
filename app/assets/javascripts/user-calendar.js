@@ -11,8 +11,6 @@ $(document).ready(function() {
 	data.push(weeks3);
 	data.push(weeks4);
 
-	console.log(data)
-
 	// 	.selectAll('tr')
 	// 	.data(data)
 	// 	.enter()
@@ -45,30 +43,94 @@ $(document).ready(function() {
 
 	table.append('tbody')
 	var tbody = d3.select('tbody')
-		data.forEach(function (week, index) {
+		data.forEach(function (week) {
 		var tcell = 
 			tbody
 				.append('tr').attr('class', 'cal-row')
 				.selectAll('td')
-				.data(data[index])
+				.data(week)
 				.enter()
 				.append('td')
 				.attr('class', function (d) {
 					return d.date > 0 ? 'cal-box' : '';	
-				})
+				});
+			tcell
 				.text(function (d) {
 					return d.date > 0 ? d.date : '';
 				});
-			tcell
-				.append('div')
-				.attr('class', 'event')
-				.text(function (d) {
-					console.log(d['events'][0])
-					if (d["events"].length > 0) {
-						return d.date > 0 ? d["events"][0]["name"]: '';
-					} else {
-						return '';
-					}
+
+			var tdiv = tcell
+						.append('div')
+						// .attr('class', 'event')
+
+			var links = tdiv.selectAll('p')
+				.data(function (d) {
+					return d["events"];
 				})
+				.enter()
+				.append('p')
+				.attr('class', 'event');
+			links			
+				.attr('data-toggle', 'modal');
+			links
+				.attr('data-target', '#event_info');
+			links
+				.attr('data-artist', function (event) {
+					return event.artist;
+				});
+			links
+				.attr('data-date', function (event) {
+					return event.date;
+				});
+			links
+				.attr('data-location', function (event) {
+					return event.location;
+				});
+			links
+				.text(function (event) {
+					return event.artist;
+				});
+			
+
+			// Working code
+			// var tdiv = tcell
+			// 	.append('div')
+			// 	.attr('class', 'event');
+			// tdiv
+			// 	.attr('data-toggle', 'modal');
+			// tdiv
+			// 	.attr('data-target', '#event_info');
+
+			// tdiv.text(function (d) {
+			// 		if (d["events"].length > 0) {
+			// 			return d.date > 0 ? d["events"][0]["name"]: '';
+			// 		} else {
+			// 			return '';
+			// 		}
+			// 	})
 		});	
+
+
+	$('#event_info').on('show.bs.modal', function (event) {
+	  var button = $(event.relatedTarget) // Button that triggered the modal
+	  var artist = button.data('artist') // Extract info from data-* attributes
+	  var date = button.data('date')
+	  var location = button.data('location')
+	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+	  var modal = $(this)
+	  modal.find('.event-artist').text(artist)
+	  modal.find('.event-date').text(date)
+	  modal.find('.event-location').text(location)
+	});
+
 });	
+
+// artist
+// date
+// location
+// if price (url)
+
+
+
+
