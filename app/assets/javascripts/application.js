@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-datepicker
 //= require events
+//= require 'user-calendar.js'
 //= require_tree .
 
 

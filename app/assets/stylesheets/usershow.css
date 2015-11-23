@@ -3,6 +3,6 @@
 }
 .profile-content img {
 	border: 5px solid #ff9900;
-	height: 50%;
-	width: 50%;
+	height: auto;
+	width: 90%;
 }
