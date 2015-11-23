@@ -16,3 +16,6 @@
 .nav>li>a:hover {
 	background-color: #ff9900;
 }
+#search-input {
+	float: right;
+}
