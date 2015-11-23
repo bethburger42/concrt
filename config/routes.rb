@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   get 'users' => 'users#index'
 
+  get 'results' => 'events#results'
 
   resources :users
   resources :events

@@ -1,28 +1,18 @@
-<h1>All Concerts Go here</h1>
-<p>This is where user searches for concerts</p>
+<h1>Concert Search Page</h1>
 
-calendar search
-location search
-
-
-<%= bootstrap_form_tag url: results_path, method: :GET do |f| %>
-  <%= f.text_field :q, label: 'Search for concert' %>
-  <%= f.primary 'Search!' %>
+<div>
+<%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
+  <h3><%= f.number_field :zip, label: "Enter Zip Code:" %></h3>
+  <%= f.primary 'Search for Concerts' %>
 <% end %>
+</div>
 
-<div class="date-filter component">
-  <form id="date-filter-form" action="/metro_areas/2846-us-seattle#date-filter-form" accept-charset="UTF-8" method="get" style="display: block;"><input name="utf8" type="hidden" value="✓">
-    <div class="datepicker-container">
-      <label for="datepicker-mindate">From</label>
-      <input type="text" id="datepicker-mindate" name="filters[minDate]" readonly="" class="hasDatepicker"><img class="ui-datepicker-trigger" src="//assets.sk-static.com/assets/nw/elements/date-picker/calendar-add-f3c83fe.png" alt="..." title="...">
-    </div>
-    <div class="datepicker-container">
-      <label for="datepicker-maxdate">to</label>
-      <input type="text" id="datepicker-maxdate" name="filters[maxDate]" readonly="" class="hasDatepicker"><img class="ui-datepicker-trigger" src="//assets.sk-static.com/assets/nw/elements/date-picker/calendar-add-f3c83fe.png" alt="..." title="...">
-    </div>
-    <input type="submit" tabindex="100" value="Find">
-    <div id="clear-dates-container" style="display: none;">
-      <div id="clear-dates"> clear dates </div>
-    </div>
-</form></div>
+<div><br /><br />
+<a href="http://www.JamBase.com" title="JamBase Concert Search">
+<img src= "http://images.jambase.com/logos/jambase140x70.gif" alt="Search JamBase Concerts" border="0" /></a>
+<div><h5>**Concert information provided by <a href="http://www.jambase.com">JamBase</a>**</h5></div>
+</div>
+
+
+
 
