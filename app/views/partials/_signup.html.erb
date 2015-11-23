@@ -4,10 +4,10 @@
     <div class='m-div'>
 	    	<h1>Sign-Up</h1>
 					<%= bootstrap_form_for :user, url: signup_path do |f| %>
-						<%= f.text_field :name, placeholder: 'Name' %>
-						<%= f.text_field :email, placeholder: 'Email' %>
-						<%= f.password_field :password, placeholder: 'Password' %>
-						<%= f.password_field :password_confirmation, placeholder: 'Re-Type Password' %>
+						<%= f.text_field :name, placeholder: 'Name', required: true %>
+						<%= f.text_field :email, placeholder: 'Email', required: true %>
+						<%= f.password_field :password, placeholder: 'Password', required: true %>
+						<%= f.password_field :password_confirmation, placeholder: 'Re-Type Password', required: true %>
 						<%= f.primary 'Sign Up'%>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				<% end %>

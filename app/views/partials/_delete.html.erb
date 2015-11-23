@@ -1,0 +1,11 @@
+<div class="modal custom fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    	<div class='m-div'>
+	    	<h1>Are You Sure?</h1>
+	    	<%= link_to '<i class="fa fa-trash-o"></i> Delete Profile'.html_safe, @user, class: 'btn btn-danger', method: :delete %>
+	    	<button class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+    </div>
+  </div>
+</div>
