@@ -25,11 +25,20 @@
 		</div>
 	</div>
 
-<!-- 	<div class='row'>
+	<div class='row'>
 		<div class='col-md-6'>
+		<% if (@friends == nil) %>
+			<h4>No Friends!</h4>
+		<% else %>
+			<ul>
+				<% @friends.each do |friend| %>
+					<li><%= friend.name %></li>
+				<% end %>
+			</ul>
+		<% end %>
+
 		</div>
 			<div class='col-md-6'>
 		</div>
 	</div>
- -->
 </div>

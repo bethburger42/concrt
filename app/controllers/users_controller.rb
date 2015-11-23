@@ -30,6 +30,9 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @events = @user.events
     @friend = @user
+    @friends = @user.friends
+
+
 
     today = Date.today
     year = today.year
@@ -101,6 +104,7 @@ class UsersController < ApplicationController
     friendid = params[:user][:user_id]
     friend = User.find_by_id(friendid)
     friendship = Friendship.find_or_create_by(:user => @current_user, :friend => friend)
+    flash[:success] = 'You are now following ' + friend.name + '!'
     redirect_to users_path
   end
 
