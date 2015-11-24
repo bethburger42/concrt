@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     uploaded_path = params[:user][:picture] ? params[:user][:picture].path : 'http://mineshots.com/design/frontend/images/ms/no-user.jpg'
     cloud_file = Cloudinary::Uploader.upload(uploaded_path)
 
-    if !user.cloud_id
+    if user.cloud_id == nil
       user.cloud_id = 'no-user_sa25wv'
     else
       user.cloud_id = cloud_file['public_id']
