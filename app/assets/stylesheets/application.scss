@@ -64,17 +64,6 @@
   border: 2px solid #ff9900;
 }
 
-.btn:active, 
-.btn:visited {
-  background-color: #ff9900; 
-  color: white;
-  outline: none !important;
-  border: 2px solid white;
-  box-shadow: none !important;
-}
-
-
-
 .nav>li>a {
   color: white;
 }
@@ -82,8 +71,7 @@
 .nav>li>a:hover{
   background-color: #ff9900 !important;
 }
-
-/*.nav>li>a:active,*/ 
+ 
 .nav>li>a:visited {
   background-color: black; 
   color: white;
@@ -99,14 +87,13 @@ a:hover {
   color: white;
 }
 
-
-
 #panel-container {
   height:100%;
   width: 100%;
   position: absolute;
   overflow: scroll;
 }
+
 section {
   position: relative;
   overflow: hidden;
@@ -168,9 +155,24 @@ section {
 .wb {
   margin-top: 40px;
 }
+ 
+.wb:hover {
+  background-color: white;
+  color: #ff9900;
+  border: 2px solid #ff9900
+} 
+
+.wb:visited,
+.wb:active {
+  background-color: #ff9900; 
+  color: white;
+  outline: none !important;
+  border: 2px solid white;
+  box-shadow: none !important;
+}
 
 #wb-1 {
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 .modal-content {

@@ -46,7 +46,8 @@ class UsersController < ApplicationController
     @events = @user.events
     @friend = @user
     @friends = @user.friends
-
+    @followers = Friendship.includes(:user).where(:friend_id => @user.id)
+    
     today = Date.today
     year = today.year
     month = today.mon

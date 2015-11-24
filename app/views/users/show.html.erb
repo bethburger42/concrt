@@ -4,41 +4,47 @@
 <div class='container'>
 	<div class='page-header'>
 		<h1 class='user-name'><%= @user.name %></h1>
-			<% if (@current_user && @current_user.id != @user.id) %>
+			<% if @current_user && @current_user.id != @user.id && @current_user.friends.exclude?(@user) %>
 					<%= bootstrap_form_for @friend, :method => 'post' do |f| %>
 					<%=f.hidden_field 'user_id', :value => @user.id %>
-					<%= f.primary 'Follow', class: 'btn btn-default' %> 
+					<%= f.submit 'Follow', class: 'btn btn-default follow' %> 
 				<% end %>
+			<% elsif @current_user && @current_user.id != @user.id && @current_user.friends.include?(@user)%>
+				<h3>You are Following <%= @user.name %></h3>
+			<% else %>
 			<% end %>
 	</div>
 
 	<div class='row profile-content'>
 		<div class='col-md-4'>
-			<%= cl_image_tag(@user.cloud_id, :width => 400, :height => 400) %>
+			<%= cl_image_tag(@user.cloud_id, :width => 400, :height => 400, :crop => :fill, :gravity => :face) %>
 				<% if(@current_user && @current_user.id == @user.id) %>
 					<%= link_to '<i class="fa fa-trash-o"></i> Delete Profile'.html_safe, '#delete', 'data-toggle' => 'modal', 'data-target' => '#delete', class: 'btn btn-default', id: 'delete'%>
 					<%= link_to '<i class="fa fa-pencil"></i> Edit Profile'.html_safe, '#edit', 'data-toggle' => 'modal', 'data-target' => '#edit', class: 'btn btn-default', id: 'edit'%>
 				<% end %>
+				<div class='friends'>
+					<% if @user.friends.length == 0 %>
+					<% else %>
+						<h4><%= @user.name %> is Following: </h4>
+						<ul>
+							<% @friends.each do |friend| %>
+								<li><a href='<%= friend.id %>'><%= friend.name %></a></li>
+							<% end %>
+						</ul>
+					<% end %>
+					<% if @followers.length == 0 %>
+					<% else %>
+						<h4><%= @user.name %> is Followed By: </h4>
+							<ul>
+								<% @followers.each do |follower| %>
+								<li><a href='<%= follower.user.id %>'><%= follower.user.name %></a></li>
+							<% end %>
+						</ul>
+					<% end %>
+				</div>
 		</div>
 		<div class='col-md-8'>
 			<table id="user-calendar"></table>
-		</div>
-	</div>
-
-	<div class='row'>
-		<div class='col-md-6'>
-		<% if (@friends == nil) %>
-			<h4>No Friends!</h4>
-		<% else %>
-			<ul>
-				<% @friends.each do |friend| %>
-					<li><%= friend.name %></li>
-				<% end %>
-			</ul>
-		<% end %>
-
-		</div>
-			<div class='col-md-6'>
 		</div>
 	</div>
 </div>
