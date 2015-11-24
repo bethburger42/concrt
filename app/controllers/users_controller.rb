@@ -85,12 +85,12 @@ class UsersController < ApplicationController
       end
     end
 
-    # arr[0][5]["events"].push "Event"
-    gon.weeks0 = arr[0].to_json
-    gon.weeks1 = arr[1].to_json
-    gon.weeks2 = arr[2].to_json
-    gon.weeks3 = arr[3].to_json
-    gon.weeks4 = arr[4].to_json
+      gon.weeks0 = arr[0].to_json
+      gon.weeks1 = arr[1].to_json
+      gon.weeks2 = arr[2].to_json
+      gon.weeks3 = arr[3].to_json
+      gon.weeks4 = arr[4].to_json
+
   end
 
   def update
