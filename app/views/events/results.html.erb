@@ -1,12 +1,19 @@
-<h1>Concert Results Page</h1>
+<div class='page-header row'>
+  <div class='col-md-6'>
+  <h1><span id='concert-search'>Concerts by Date/Location</span></h1>
+  <%= link_to '&larr; Back'.html_safe, events_path, class: 'btn btn-primary back' %>
+  </div>
+  <div class='col-md-4 col-md-offset-2'>
+    <div>
+      <a href="http://www.JamBase.com" title="JamBase Concert Search">
+      <img src= "http://images.jambase.com/logos/jambase140x70.gif" alt="Search JamBase Concerts" border="0" /></a>
+      <h5>Concert information provided by <a href="http://www.jambase.com">JamBase</a></h5>
+    </div>
+  </div>
+</div>
 
-<%= link_to '&larr; Back'.html_safe, events_path, class: 'btn btn-primary back' %>
-<div><h5>**Concert information provided by <a href="http://www.jambase.com">JamBase</a>**</h5></div>
 
-<h2>Find Nearby Bars and Restaurants: </h2>
-
-
-<h2><%= @results["Events"][0]["Date"] %></h2>
+<h2><%= @results["Events"][0]["Date"].to_date.strftime("%B, %d, %Y") %></h2>
 <% @results["Events"].each do |e| %>
 <div class="well">
   <h3>Date: <%= e["Date"].to_date.strftime("%B, %d, %Y") %>
