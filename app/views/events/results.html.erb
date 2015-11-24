@@ -5,15 +5,17 @@
 
 <h2>Find Nearby Bars and Restaurants: </h2>
 
-<h2>By Zip Code: <%= @results["Events"][0]["Venue"]["ZipCode"] %></h2>
+
 <h2><%= @results["Events"][0]["Date"] %></h2>
 <% @results["Events"].each do |e| %>
 <div class="well">
+  <h3>Date: <%= e["Date"].to_date.strftime("%B, %d, %Y") %>
+  </h3>
   <h3><% e["Artists"].each do |a| %>
       <%= a["Name"] %>
     <% end %>
   </h3>
-    <h3><%= e["Venue"]["Name"] %>, <%= e["Venue"]["City"] %>, <%= e["Venue"]["StateCode"] %>
+  <h3><%= e["Venue"]["Name"] %>, <%= e["Venue"]["City"] %>, <%= e["Venue"]["StateCode"] %>
   </h3> 
   <h4> <a href="<%= e["TicketUrl"] %>"><%= e["TicketUrl"] %></a></h4>
 

@@ -1,16 +1,37 @@
-<h1>Concert Search Page</h1>
+<div class='container'>
+  <div class='page-header row'>
+    <div class='col-md-4'>
+      <h1><span id='concert-search'>Search for Shows</span></h1>
+    </div>
 
-<div>
-<%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
-  <h3><%= f.number_field :zip, label: "Enter Zip Code:" %></h3>
-  <%= f.primary 'Search for Concerts' %>
-<% end %>
-</div>
+    <div class='col-md-5'>
+      <%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
+        <h2>Select date range:</h2>
+        <div class="input-group input-daterange" id="datepicker">
+           <h4><%= f.text_field :datepicker_start_date, label: "Start Date", 'data-behaviour' => 'datepicker' %></h4>
+           <!-- <input type="string" class="input-small" name="datepicker_start_date" /> -->
+           <h4><%= f.text_field :datepicker_end_date, label: "End Date", 'data-behaviour' => 'datepicker' %></h4>
+           <!-- <input type="string" class="input-small" name="datepicker_end_date" /> -->
+        </div> 
+       <%= f.primary "Select Dates" %>
+    <% end %>
 
-<div><br /><br />
-<a href="http://www.JamBase.com" title="JamBase Concert Search">
-<img src= "http://images.jambase.com/logos/jambase140x70.gif" alt="Search JamBase Concerts" border="0" /></a>
-<div><h5>**Concert information provided by <a href="http://www.jambase.com">JamBase</a>**</h5></div>
+    </div>  
+
+
+    <div class='col-md-3 search-bar'>
+      <%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
+        <h3><%= f.number_field :zip, label: "Enter Zip Code:" %></h3>
+        <%= f.primary 'Search by Zip' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div><br /><br />
+  <a href="http://www.JamBase.com" title="JamBase Concert Search">
+  <img src= "http://images.jambase.com/logos/jambase140x70.gif" alt="Search JamBase Concerts" border="0" /></a>
+  <div><h5>**Concert information provided by <a href="http://www.jambase.com">JamBase</a>**</h5></div>
+  </div>
 </div>
 
 

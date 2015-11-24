@@ -5,6 +5,7 @@
 $(document).ready(function(){
   $('[data-behaviour~=datepicker]').datepicker( {
     showOtherMonths: true,
-    defaultDate: null
+    defaultDate: null,
+    format: 'yyyy-mm-dd'
   } );
 })
