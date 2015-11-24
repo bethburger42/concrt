@@ -15,3 +15,11 @@ h3 {
 .friends li {
 	color: white;
 }
+
+#delete {
+	margin-top: 10px;
+}
+
+#edit {
+	margin-top: 10px;
+}

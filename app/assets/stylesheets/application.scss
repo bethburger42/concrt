@@ -64,6 +64,14 @@
   border: 2px solid #ff9900;
 }
 
+.btn:active,
+.btn:focus {
+  background-color: #ff9900;
+  color: white;
+  border: 2px solid white;
+  outline: none;
+} 
+
 .nav>li>a {
   color: white;
 }
@@ -72,7 +80,8 @@
   background-color: #ff9900 !important;
 }
  
-.nav>li>a:visited {
+.nav>li>a:active,
+.nav>li>a:focus {
   background-color: black; 
   color: white;
   outline: none !important;
@@ -156,21 +165,6 @@ section {
   margin-top: 40px;
 }
  
-.wb:hover {
-  background-color: white;
-  color: #ff9900;
-  border: 2px solid #ff9900
-} 
-
-.wb:visited,
-.wb:active {
-  background-color: #ff9900; 
-  color: white;
-  outline: none !important;
-  border: 2px solid white;
-  box-shadow: none !important;
-}
-
 #wb-1 {
   margin-right: 20px;
 }
@@ -182,4 +176,8 @@ section {
 
 .m-div {
  padding: 20px;
+}
+
+.control-label {
+  color: transparent;
 }

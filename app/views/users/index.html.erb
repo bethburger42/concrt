@@ -1,18 +1,21 @@
 <div class='container'>
 	<div class='page-header row'>
-		<div class='col-md-6'>
+		<div class='col-md-8'>
 				<h1><span id='network'>Network</span>
 				<% unless (@current_user) %>
 					<small id='u-link'>- <%= link_to 'Sign-Up Today!', '#signup', 'data-toggle' => 'modal', 'data-target' => '#signup'%></small></h1>
 					<% end %>
 			</div>
-			<div class='col-md-4 col-md-offset-2 search-bar'>
+			<div class='col-md-3 search-bar'>
 				<%= bootstrap_form_tag url: '/users', method: 'GET', id:'search-form' do |f| %>
 					  <%= f.text_field :search, placeholder: 'Search Users' %>
-					  <%= f.submit "Search" %>
-				<% end %>
 			</div>
+			<div class='col-md-1 search-button'>
+					 <%= f.submit "Search" %>
+			</div>
+				<% end %>
 	</div>
+
 	<div class='row'>
 		<% @users.each do |user| %>
 			<div class='col-md-2 user'>
@@ -22,5 +25,6 @@
 			</div>
 		<% end %>
 	</div>
+
 </div>
 
