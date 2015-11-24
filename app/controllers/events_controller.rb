@@ -11,24 +11,29 @@ class EventsController < ApplicationController
 
   def results
     @events = Event.new
-    @startDate = params[:datepicker_start_date]
-    @endDate = params[:datepicker_end_date]
-    @zipCode = params[:zip].to_i
+    @startDate = params[:datepicker_start_date].to_datetime
+    @endDate = params[:datepicker_end_date].to_datetime
+    @zipCode = params[:zip].to_i > 0 ? params[:zip].to_i : 98101
     @jbkey = ENV['JAMBASE_API_KEY']
 
+    puts "****StartDate********"
+    puts @startDate
+    puts "****EndDate********"
+    puts @endDate
+    puts "****zipCode********"
     puts @zipCode
 
     # WORKING CODE
-    response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zipCode => @zipCode}}
+    response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zipCode => @zipCode, :startDate => @startDate, :endDate => @endDate}}
     @results = JSON.parse(response)
     # WORKING CODE
 
     # response = RestClient.get 'http://api.jambase.com/events', :params => {:apikey => @jbkey, :o => 'json', :page => 0, :zip => @zipCode, :startDate => @startDate, :endDate => @endDate}
     # @results = JSON.parse(response)['results']
 
-    # puts "**********************"
-    # puts @results
-    # puts "**********************"
+    puts "**********************"
+    puts @results
+    puts "**********************"
 
 
   end
