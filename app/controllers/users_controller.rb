@@ -18,10 +18,10 @@ class UsersController < ApplicationController
     if (params[:user][:picture])
       uploaded_path = params[:user][:picture].path
       cloud_file = Cloudinary::Uploader.upload(uploaded_path)
-      u.cloud_id = cloud_file['public_id']
+      user.cloud_id = cloud_file['public_id']
 
     else 
-      u.cloud_id = 'no-user_sa25wv'
+      user.cloud_id = 'no-user_sa25wv'
     end
 
     user.save
