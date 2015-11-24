@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     uploaded_path = params[:user][:picture] ? params[:user][:picture].path : 'http://mineshots.com/design/frontend/images/ms/no-user.jpg'
     cloud_file = Cloudinary::Uploader.upload(uploaded_path)
 
-    if (user.cloud_id == nil)
+    if !user.cloud_id
       user.cloud_id = 'no-user_sa25wv'
     else
       user.cloud_id = cloud_file['public_id']
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     user.save
     
-    if(user)
+    if user
       session[:user_id] = user.id
       flash[:success] = 'You have successfully logged in!'
       redirect_to user
