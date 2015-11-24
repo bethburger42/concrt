@@ -10,13 +10,18 @@ class UsersController < ApplicationController
   def create
     user = User.create user_params
 
-    uploaded_path = params[:user][:picture] ? params[:user][:picture].path : 'http://mineshots.com/design/frontend/images/ms/no-user.jpg'
-    cloud_file = Cloudinary::Uploader.upload(uploaded_path)
+    # uploaded_path = params[:user][:picture] ? params[:user][:picture].path : 'http://mineshots.com/design/frontend/images/ms/no-user.jpg'
+    # cloud_file = Cloudinary::Uploader.upload(uploaded_path)
 
-    if user.cloud_id == nil
-      user.cloud_id = 'no-user_sa25wv'
-    else
-      user.cloud_id = cloud_file['public_id']
+    # user.cloud_id = cloud_file['public_id']
+    
+    if (params[:user][:picture])
+      uploaded_path = params[:user][:picture].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded_path)
+      u.cloud_id = cloud_file['public_id']
+
+    else 
+      u.cloud_id = 'no-user_sa25wv'
     end
 
     user.save
@@ -95,11 +100,10 @@ class UsersController < ApplicationController
     if (params[:user][:picture])
       uploaded_path = params[:user][:picture].path
       cloud_file = Cloudinary::Uploader.upload(uploaded_path)
-    u.cloud_id = cloud_file['public_id']
+      u.cloud_id = cloud_file['public_id']
 
     else 
-#      uploaded_path = params[:user][:cloud_id]
-        u.cloud_id = u.cloud_id
+      u.cloud_id = u.cloud_id
     end
     
     u.update_attributes(userParams)
