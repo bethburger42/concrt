@@ -14,7 +14,7 @@
 
 	<div class='row profile-content'>
 		<div class='col-md-4'>
-			<img src='http://mineshots.com/design/frontend/images/ms/no-user.jpg'>
+			<%= cl_image_tag(@user.cloud_id, :width => 400, :height => 400) %>
 				<% if(@current_user && @current_user.id == @user.id) %>
 					<%= link_to '<i class="fa fa-trash-o"></i> Delete Profile'.html_safe, '#delete', 'data-toggle' => 'modal', 'data-target' => '#delete', class: 'btn btn-default', id: 'delete'%>
 					<%= link_to '<i class="fa fa-pencil"></i> Edit Profile'.html_safe, '#edit', 'data-toggle' => 'modal', 'data-target' => '#edit', class: 'btn btn-default', id: 'edit'%>

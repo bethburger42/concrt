@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'uploads/new'
+
+  get 'uploads/create'
+
+  get 'uploads/edit'
+
   get 'sessions/new'
 
   # get 'events/index'

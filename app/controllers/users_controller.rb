@@ -9,6 +9,17 @@ class UsersController < ApplicationController
 
   def create
     user = User.create user_params
+
+    uploaded_path = params[:user][:picture] ? params[:user][:picture].path : 'http://mineshots.com/design/frontend/images/ms/no-user.jpg'
+    cloud_file = Cloudinary::Uploader.upload(uploaded_path)
+
+    if (user.cloud_id == nil)
+      user.cloud_id = 'no-user_sa25wv'
+    else
+      user.cloud_id = cloud_file['public_id']
+    end
+
+    user.save
     
     if(user)
       session[:user_id] = user.id
@@ -22,7 +33,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
   end
   
   def show
@@ -31,8 +41,6 @@ class UsersController < ApplicationController
     @events = @user.events
     @friend = @user
     @friends = @user.friends
-
-
 
     today = Date.today
     year = today.year
@@ -45,7 +53,6 @@ class UsersController < ApplicationController
     week = startDate.wday == 0 ? startDate.cweek + 1 : startDate.cweek
 
     arr = Array.new(5) { Array.new(7) { {"date" => 0, "events" => []} } }
-
 
     for i in 1..5
       for j in 1..7
@@ -82,8 +89,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    userParams = params.require(:user).permit(:name, :email)
+    userParams = params.require(:user).permit(:name, :email, :cloud_id)
     u = User.find_by_id(@current_user.id)
+
+    if (params[:user][:picture])
+      uploaded_path = params[:user][:picture].path
+      cloud_file = Cloudinary::Uploader.upload(uploaded_path)
+    u.cloud_id = cloud_file['public_id']
+
+    else 
+#      uploaded_path = params[:user][:cloud_id]
+        u.cloud_id = u.cloud_id
+    end
+    
     u.update_attributes(userParams)
     redirect_to '/users/' + @current_user.id.to_s
   end
@@ -110,7 +128,7 @@ class UsersController < ApplicationController
 
   private
 
-   def user_params
-    params.require(:user).permit(:name, :email, :password)
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :cloud_id)
   end
 end

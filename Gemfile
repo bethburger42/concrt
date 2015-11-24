@@ -42,6 +42,8 @@ gem 'gon'
 
 gem 'json'
 
+gem 'cloudinary'
+
 gem 'yelp', require: 'yelp'
 
 gem 'rails_12factor', group: :production
