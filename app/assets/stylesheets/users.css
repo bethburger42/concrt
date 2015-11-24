@@ -13,7 +13,7 @@
 }
 
 .search-button input.btn {
-	margin-top: 43px;
+	margin-top: 38px;
 	margin-left: -15px;
 }
 .search-bar {
@@ -21,7 +21,11 @@
 }
 
 #search {
-	margin-top: 20px;
+	margin-top: 40px;
 	background-color: transparent;
+	color: white;
+}
+
+.control-label {
 	color: white;
 }

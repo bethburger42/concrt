@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def index
-      if params[:search]
-        @users = User.where('name LIKE ?', params[:search])
-      else
+    search = params[:search]
+      if search
+        @users = User.where('lower(name) = ?', search.downcase)
+      elsif search == nil
         @users = User.all
       end
   end

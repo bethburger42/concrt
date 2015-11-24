@@ -7,8 +7,8 @@
 					<% end %>
 			</div>
 			<div class='col-md-3 search-bar'>
-				<%= bootstrap_form_tag url: '/users', method: 'GET', id:'search-form' do |f| %>
-					  <%= f.text_field :search, placeholder: 'Search Users' %>
+				<%= bootstrap_form_tag url: '/users', method: 'GET' do |f| %>
+					  <%= f.text_field :search, placeholder: 'Search Users', hide_label: true,required: true %>
 			</div>
 			<div class='col-md-1 search-button'>
 					 <%= f.submit "Search" %>
