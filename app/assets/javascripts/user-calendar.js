@@ -26,9 +26,9 @@ $(document).ready(function() {
 		.attr('class', 'uc-header')
 		.append('td')	
 		.attr('colspan', 7)
-		.text(gon.month)
+		.text(gon.month+" ")
 		.append('small')
-		.text(gon.year)
+		.text(" "+gon.year)
 
 	header
 		.append('tr')
@@ -87,6 +87,10 @@ $(document).ready(function() {
 					return event.location;
 				});
 			links
+				.attr('data-id', function (event) {
+					return event.id;
+				});
+			links
 				.text(function (event) {
 					return event.artist;
 				});
@@ -115,6 +119,7 @@ $(document).ready(function() {
 	  var button = $(event.relatedTarget) // Button that triggered the modal
 	  var artist = button.data('artist') // Extract info from data-* attributes
 	  var date = button.data('date')
+	  var id = button.data('id')
 	  var location = button.data('location')
 	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -122,7 +127,22 @@ $(document).ready(function() {
 	  modal.find('.event-artist').text(artist)
 	  modal.find('.event-date').text(date)
 	  modal.find('.event-location').text(location)
+	  modal.find('.event-id').attr('value', id)
 	});
+
+	// $('.js-delete-btn').on('click',function(e){
+	//     e.preventDefault();
+	//     var btn=$(this);
+	//     $.ajax({
+	//       url:  btn.attr('href'),
+	//       method:'DELETE',
+	//       dataType:'json'
+	//     }).done(function(data){
+	//       if(data){
+	//         btn.closest('tr').remove();
+	//       }
+	//     })
+	// });
 
 });	
 

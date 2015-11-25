@@ -53,8 +53,12 @@ Rails.application.routes.draw do
 
   post 'users/:id' => 'users#follow'
 
+  post 'remove' => 'users#remove'
+
   resources :users
   resources :events
+
+  get '/:error' => 'main#error'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

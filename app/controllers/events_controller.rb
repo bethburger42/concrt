@@ -70,3 +70,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:event_id, :date, :location, :artist, :price)
   end
 end
+
