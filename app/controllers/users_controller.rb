@@ -10,11 +10,6 @@ class UsersController < ApplicationController
 
   def create
     user = User.create user_params
-
-    # uploaded_path = params[:user][:picture] ? params[:user][:picture].path : 'http://mineshots.com/design/frontend/images/ms/no-user.jpg'
-    # cloud_file = Cloudinary::Uploader.upload(uploaded_path)
-
-    # user.cloud_id = cloud_file['public_id']
     
     if (params[:user][:picture])
       uploaded_path = params[:user][:picture].path
