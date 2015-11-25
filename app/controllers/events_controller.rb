@@ -49,10 +49,10 @@ class EventsController < ApplicationController
     if @event
       @user.events << @event
     else
-      @event = Event.create event_params 
+      @event = Event.create event_params
       @user.events << @event
     end
-    flash[:notice] = 'Event was saved to your calendar!'
+    flash[:success] = 'Event was saved to your calendar!'
     redirect_to events_path
   end
 
