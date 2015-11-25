@@ -14,10 +14,10 @@
   </div>
 
   <% if @results["Info"]["TotalResults"] > 0 %>
-    <h2 class="white-text"><%= @results["Events"][0]["Date"].to_date.strftime("%B, %d, %Y") %></h2>
+    <h2 class="white-text"><%= @results["Events"][0]["Date"].to_date.strftime("%B %d, %Y") %></h2>
     <% @results["Events"].each do |e| %>
     <div class="well events-results">
-      <h4>Date: <%= e["Date"].to_date.strftime("%B, %d, %Y") %>
+      <h4>Date: <%= e["Date"].to_date.strftime("%B %d, %Y") %>
       </h4>
       <h4><% e["Artists"].each do |a| %>
           <%= a["Name"] %>

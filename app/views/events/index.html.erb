@@ -7,9 +7,9 @@
     <div class='col-md-6 search-bar'>
       <%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
       <div class="input-group input-daterange" id="datepicker">
-         <h4><%= f.text_field :datepicker_start_date, label: "Search by Date:", placeholder: "Enter Start Date", 'data-behaviour' => 'datepicker' %></h4>
+         <h4><%= f.text_field :datepicker_start_date, label: "Search by Date:", placeholder: "Enter Start Date", 'data-behaviour' => 'datepicker', required: true %></h4>
          <!-- <input type="string" class="input-small" name="datepicker_start_date" /> -->
-         <h4><%= f.text_field :datepicker_end_date, hide_label: true, placeholder: "Enter End Date", 'data-behaviour' => 'datepicker' %></h4>
+         <h4><%= f.text_field :datepicker_end_date, hide_label: true, placeholder: "Enter End Date", 'data-behaviour' => 'datepicker', required: true %></h4>
          <!-- <input type="string" class="input-small" name="datepicker_end_date" /> -->
       </div> 
 
