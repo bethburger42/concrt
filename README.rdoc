@@ -1,9 +1,8 @@
- <h1>Concrt</h1>
+<h1>Concrt</h1>
 <h2>Authors: Chris Carlson, Beth Ernsberger, Sam French</h2>
 
-Ruby version 2.2.2
 <h3>App Info</h3>
-<p>Concrt is an app to find and discover local music. Members can save concerts to their calendar, follow other users to view their calendars 
+<p>Concrt is a web application that allows users to discover and share local concerts with friends. Members can search for and save shows to their calendars, then follow other users to view their concert calendars. Site users can also search for concerts and view other users' calendars, but can't save events.
 </p>
 
 <h3>Technologies Used</h3>
@@ -11,17 +10,18 @@ Ruby version 2.2.2
   <li>HTML5</li>
   <li>CSS3</li>
   <li>Bootstrap</li>
-  <li>Ruby</li>
+  <li>Ruby v2.2.2</li>
   <li>Rails</li>
-  <li>D3.js</li>
+  <li>D3js</li>
   <li>Bootstrap Datepicker</li>
   <li>Cloudinary</li>
   <li>JQuery Panelsnap</li>
   <li>Bcrypt</li>
   <li>Postresql</li>
+  <li>JamBase API</li>
 </ul>
 
-Files to include in Gemfile:
+Gems used:
 <ul>
   <li>bootstrap-datepicker-rails</li>
   <li>bcrypt</li>
@@ -34,26 +34,3 @@ Files to include in Gemfile:
 </ul>
 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
