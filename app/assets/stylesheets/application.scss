@@ -96,6 +96,13 @@ a:hover {
   color: white;
 }
 
+a:active,
+a:focus {
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
 #panel-container {
   height:100%;
   width: 100%;
@@ -170,8 +177,21 @@ section {
   margin-right: 20px;
 }
 
-#wb-2 {
-}
+#wb-1:active,
+#wb-1:focus {
+  background-color: #ff9900;
+  color: white;
+  border: 2px solid white;
+  outline: none;
+} 
+
+#wb-2:active,
+#wb-2:focus {
+  background-color: #ff9900;
+  color: white;
+  border: 2px solid white;
+  outline: none;
+} 
 
 .modal-content {
   background-color: rgba(255, 153, 0, 0.8);
