@@ -1,8 +1,25 @@
 .user-name {
 	color: #ff9900;
 }
+h3 {
+	color: white;
+}
 .profile-content img {
 	border: 5px solid #ff9900;
 	height: auto;
 	width: 90%;
+}
+.friends h4 {
+	color: #ff9900;
+}
+.friends li {
+	color: white;
+}
+
+#delete {
+	margin-top: 10px;
+}
+
+#edit {
+	margin-top: 10px;
 }

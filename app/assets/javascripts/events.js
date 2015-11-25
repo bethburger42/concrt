@@ -5,6 +5,10 @@
 $(document).ready(function(){
   $('[data-behaviour~=datepicker]').datepicker( {
     showOtherMonths: true,
-    defaultDate: null
+    defaultDate: null,
+    autoclose: true,
+    clearBtn: true,
+    startDate: new Date(),
+    format: 'yyyy-mm-dd'
   } );
 })
