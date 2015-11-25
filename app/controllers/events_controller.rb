@@ -32,6 +32,11 @@ class EventsController < ApplicationController
 
   end
 
+  def show
+
+  end
+
+  
   def new
     @events = Event.new
   end
@@ -63,3 +68,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:event_id, :date, :location, :artist, :price)
   end
 end
+

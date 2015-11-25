@@ -22,6 +22,7 @@
 
 .event {
 	color: black;
+	cursor: pointer;
 }
 
 .cal-box:hover {

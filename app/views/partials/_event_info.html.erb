@@ -2,10 +2,19 @@
   <div class="modal-dialog">
     <div class="modal-content">
     	<div class='m-div'>
-	    	<h1 class="event-artist"></h1>
-				<p class="event-date"></p>
-				<p class="event-location"></p>
-			</div>
+		  	<h1 class="event-artist"></h1>
+			<p class="event-date"></p>
+			<p class="event-location"></p>
+
+			<% if (@current_user = @user) %>
+				<%= bootstrap_form_tag url: '/remove' do |f| %>
+					<%= f.hidden_field :user_id, value: @current_user.id %>
+					<%= f.hidden_field :event_id, class: 'event-id' %>
+					<%= f.primary 'Remove Event' %>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<% end  %>
+			<% end %>
+		</div>
     </div>
   </div>
 </div>

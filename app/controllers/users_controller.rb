@@ -132,6 +132,17 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def remove
+
+    user = User.find(params[:user_id])
+    event = user.events.find(params[:event_id])
+
+    # removes a specific event from a user's calendar (event stays in the db)
+    user.events.delete(event)
+    redirect_to '/users/' + @current_user.id.to_s
+
+  end
+
   private
 
   def user_params

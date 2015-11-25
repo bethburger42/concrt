@@ -1,0 +1,25 @@
+.profile {
+	text-align: center;
+}
+
+.profile-pic {
+	height: 200px;
+	border-radius: 15px;
+}
+
+.profile-content { 
+	color: white;
+	border: 1px solid #ff9900;
+	border-radius: 15px;
+	padding: 8px;
+	margin-top: 5px;
+	font-size: 15px;
+}
+
+#meet {
+	color: #ff9900;
+}
+
+i {
+	margin-left: 5px;
+}
