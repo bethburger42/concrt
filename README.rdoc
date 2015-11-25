@@ -1,4 +1,35 @@
-== README
+ <h1>Concrt</h1>
+<h2>Authors: Chris Carlson, Beth Ernsberger, Sam French</h2>
+
+Ruby version 
+<h3>App Info</h3>
+<p>Concrt is an app to find and discover local music. Members can save concerts to their calendar, follow other users to view their calendars 
+</p>
+
+<h3>Technologies Used</h3>
+<ul>
+  <li>HTML5</li>
+  <li>CSS3</li>
+  <li>Bootstrap</li>
+  <li>Ruby</li>
+  <li>JQuery</li>
+  <li>JQuery UI</li>
+  <li>Cheerio</li>
+  <li>Cloudinary</li>
+</ul>
+
+
+Files to include in Gemfile:
+<ul>
+  <li>bootstrap-datepicker-rails <a href="https://github.com/Nerian/bootstrap-datepicker-rails">https://github.com/Nerian/bootstrap-datepicker-rails</a></li>
+  <li>bcrypt</li>
+  <li>email_validator</li>
+  <li>Bootstrap-datepicker-rails</li>
+  <li>bootstrap_form</li>
+  <li>gon</li>
+  <li>rest-client</li>
+  <li>gon</li>
+</ul>
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

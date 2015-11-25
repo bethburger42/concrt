@@ -2,7 +2,6 @@ require 'rest-client'
 require 'json'
 
 class EventsController < ApplicationController
-
   attr_accessor :event_id, :date, :locations, :artist, :zip, :datepicker_start_date, :datepicker_end_date
 
   def index
@@ -23,13 +22,8 @@ class EventsController < ApplicationController
     puts "****zipCode********"
     puts @zipCode
 
-    # WORKING CODE
     response = RestClient.get "http://api.jambase.com/events", {:params => {:api_key => @jbkey, :o => 'json', :page => 0, :zipCode => @zipCode, :startDate => @startDate, :endDate => @endDate}}
     @results = JSON.parse(response)
-    # WORKING CODE
-
-    # response = RestClient.get 'http://api.jambase.com/events', :params => {:apikey => @jbkey, :o => 'json', :page => 0, :zip => @zipCode, :startDate => @startDate, :endDate => @endDate}
-    # @results = JSON.parse(response)['results']
 
     puts "**********************"
     puts @results
@@ -39,21 +33,19 @@ class EventsController < ApplicationController
   end
 
   def show
+
   end
 
+  
   def new
     @events = Event.new
-
   end
 
   def create
-    # if Songkick event id isn't already in database
     @user = User.find(session[:user_id])
     @event = Event.find_by(event_id: params[:event_id])
 
-    # puts "*******1st Event***************"
-    # puts @event
-
+    # If Songkick event ID is already in database
     if @event
       @user.events << @event
     else
@@ -68,6 +60,7 @@ class EventsController < ApplicationController
     Event.find(params[:id]).delete
     redirect_to events_path
   end
+
 
   private
 
