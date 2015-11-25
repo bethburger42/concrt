@@ -1,10 +1,28 @@
-#concert-search {
+#concert-search,
+#datepicker label,
+#zip-search label {
   color: #ff9900;
 }
 .search-bar {
   display: inline-block;
 }
 
-a { 
+#datepicker_start_date,
+#datepicker_end_date,
+#zip {
+  /*margin-top: 40px;*/
+  background-color: transparent;
+  color: white;
+}
+
+.events-results {
+  color: #ff9900;
+}
+
+.event-url a { 
   color: blue;
+}
+
+.white-text {
+  color: white;
 }

@@ -3,29 +3,28 @@
     <div class='col-md-6'>
       <h1><span id='concert-search'>Search for Shows</span></h1>
     </div>
-  </div>
 
     <div class='col-md-6 search-bar'>
       <%= bootstrap_form_tag url: results_path, :method => 'get' do |f| %>
       <div class="input-group input-daterange" id="datepicker">
-         <h3><%= f.text_field :datepicker_start_date, label: "Start Date:", 'data-behaviour' => 'datepicker' %></h3>
+         <h4><%= f.text_field :datepicker_start_date, label: "Search by Date:", placeholder: "Enter Start Date", 'data-behaviour' => 'datepicker' %></h4>
          <!-- <input type="string" class="input-small" name="datepicker_start_date" /> -->
-         <h3><%= f.text_field :datepicker_end_date, label: "End Date:", 'data-behaviour' => 'datepicker' %></h3>
+         <h4><%= f.text_field :datepicker_end_date, hide_label: true, placeholder: "Enter End Date", 'data-behaviour' => 'datepicker' %></h4>
          <!-- <input type="string" class="input-small" name="datepicker_end_date" /> -->
       </div> 
 
-      <div class='search-bar'>
-        <h3><%= f.text_field :zip, label: "Zip Code:" %></h3>
+      <div class='search-bar' id="zip-search">
+        <h4><%= f.text_field :zip, label: "Search by Zip:", placeholder: "Enter Zip Code" %></h4>
         <%= f.primary 'Search for Concerts' %>
       <% end %>
       </div>
     </div>  
-  
+  </div>
 
-  <div><br /><br />
+  <div class="jambase"><br /><br />
   <a href="http://www.JamBase.com" title="JamBase Concert Search">
   <img src= "http://images.jambase.com/logos/jambase140x70.gif" alt="Search JamBase Concerts" border="0" /></a>
-  <h5>Concert information provided by <a href="http://www.jambase.com">JamBase</a></h5>
+  <h5 class="white-text">Concert information provided by <a href="http://www.jambase.com">JamBase</a></h5>
   </div>
 </div>
 
